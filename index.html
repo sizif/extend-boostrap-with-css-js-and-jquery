@@ -119,7 +119,7 @@
 				<a href="index.html">My Tunes</a>
 			</header>
 		</div>
-		<nav class="pdsa-sn-wrapper">
+		<nav id="sideNavParent" class="pdsa-sn-wrapper">
 			<ul>
 				<li class="pdsa-sn-brand">
 					<a href="index.html"
@@ -132,17 +132,40 @@
 					</a>
 				</li>
 				<li>
-					<a href="#">
+					<a href="#" 
+					   data-toggle="collapse"
+					   data-target="#ulGenres">
 						<span class="visible-sm visible-md visible-lg">Genres</span>
 						<i class="glyphicon glyphicon-globe visible-xs"></i>
 					</a>
+					<div class="visible-sm visible-md visible-lg"></div>
+					<ul id="ulGenres" class="collapse" data-parent="#sideNavParent">
+						<li>
+							<a href="#">All Genres</a>
+							<a href="#">Jazz</a>
+							<a href="#">Country</a>
+							<a href="#">Swing</a>
+						</li>
+					</ul>
 				</li>
-				<li>
-					<a href="#">
-						<span class="visible-sm visible-md visible-lg">Playlists</span>
-						<i class="glyphicon glyphicon-list-alt visible-xs"></i>
-					</a>
-				</li>
+<li>
+	<a href="#" 
+	   data-toggle="collapse"
+	   data-target="#ulPlaylists">
+		<span class="visible-sm visible-md visible-lg">Playlists</span>
+		<i class="glyphicon glyphicon-list-alt visible-xs"></i>
+	</a>
+	<div class="visible-sm visible-md visible-lg"></div>
+	<ul id="ulPlaylists" class="collapse" data-parent="#sideNavParent">
+		<li>
+			<a href="#">All Playlists</a>
+			<a href="#">My Top Rated</a>
+			<a href="#">Top Country</a>
+			<a href="#">Top Classic Rock</a>
+		</li>
+	</ul>
+</li>
+
 				<li>
 					<a href="#">
 						<span class="visible-sm visible-md visible-lg">Songs</span>
@@ -174,6 +197,6 @@
 	
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	<script type="dist/js/bootstrap.js" src=""></script>
+	<script src="dist/js/bootstrap.js"></script>
 </body>
 </html>
