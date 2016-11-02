@@ -9,7 +9,7 @@
 	background-color: blue;  
 }
 
-.pdsa-summary-block-primary .summary-footer {
+.pdsa-summary-block-primary .summary-footer a {
 	color: white;
 }
 
@@ -23,7 +23,7 @@
 	background-color: green;  
 }
 
-.pdsa-summary-block-success .summary-footer {
+.pdsa-summary-block-success .summary-footer a {
 	color: white;
 }
 
