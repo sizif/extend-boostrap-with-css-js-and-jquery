@@ -7,6 +7,11 @@
 	background-color: blue;  
 }
 
+.pdsa-summary-block-primary .summary-footer {
+	color: white;
+}
+
+
 .pdsa-summary-block {
 			position: relative;
 			width: 100%;
@@ -40,7 +45,6 @@
 		
 		.pdsa-summary-block .summary-footer {
 			position: absolute;
-
 			bottom: 0em;
 			right: 0em;
 			width: 100%;
@@ -52,7 +56,6 @@
 		}
 			.pdsa-summary-block .summary-footer a {
 				text-decoration: none;
-				color: white;
 			}
 			
 			.pdsa-summary-block .summary-footer:hover {
