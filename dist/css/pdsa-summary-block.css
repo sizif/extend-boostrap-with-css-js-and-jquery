@@ -1,3 +1,5 @@
+/* Theme of Summary Blocks */
+
 .pdsa-summary-block-primary {
 	background-color: #428bca;
 	color: #fff;   
@@ -11,6 +13,21 @@
 	color: white;
 }
 
+/* color success */
+.pdsa-summary-block-success {
+	background-color: #3c763d;
+	color: #fff;   
+}
+
+.pdsa-summary-block-success .summary-footer {
+	background-color: green;  
+}
+
+.pdsa-summary-block-success .summary-footer {
+	color: white;
+}
+
+/* Structure of Summary Blocks */
 
 .pdsa-summary-block {
 			position: relative;
