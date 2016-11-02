@@ -27,6 +27,19 @@
 	color: white;
 }
 
+/* color info */
+.pdsa-summary-block-info {
+	background-color: #31708f;
+	color: #fff;   
+}
+
+.pdsa-summary-block-info .summary-footer {
+	background-color: teal;  
+}
+
+.pdsa-summary-block-info .summary-footer a {
+	color: white;
+}
 /* Structure of Summary Blocks */
 
 .pdsa-summary-block {
