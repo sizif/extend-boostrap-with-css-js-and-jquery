@@ -167,10 +167,10 @@
 	<script>
 	/* global $ */
 	
-		var checkOptions = { // (1)
-			id: "", // (2) 
+		var checkOptions = {
+			id: "",
 			checkedGlyph: "glyphicon-ok-circle",
-			uncheckedGlyph: "glyphicon-unchecked",
+			unCheckedGlyph: "glyphicon-unchecked",
 			checkedBtnClass: "btn-success",
 			unCheckedBtnClass: "btn-primary",
 			checkedText: "Selected",
@@ -184,25 +184,33 @@
 			
 			$("[type='checkbox']").on('change', function() {
 				if ($(this).prop('checked')) {
-					$(this).prev()
-					.removeClass('glyphicon-unchecked')
-					.addClass('glyphicon-ok-circle');
-					$(this).parent()
-					.removeClass("btn-primary")
-					.addClass("btn-success");
-					$(this).next().text("Selected");
+					setChecked($(this)); // (2)
 				}
 				else 
 				{
-					$(this).prev()
-					.removeClass('glyphicon-ok-circle')
-					.addClass('glyphicon-unchecked');
-					$(this).parent()
-					.removeClass("btn-success")
-					.addClass("btn-primary");
-					$(this).next().text("Not Selected");
+					setUnChecked($(this)); // (6)
 				}
 			});
+			
+			function setChecked(ctl) { // (1)
+					$(ctl).prev()
+					.removeClass(checkOptions.unCheckedGlyph)		// (3)
+					.addClass(checkOptions.checkedGlyph);			// (3)
+					$(ctl).parent()
+					.removeClass(checkOptions.unCheckedBtnClass)	// (3)
+					.addClass(checkOptions.checkedBtnClass);		// (3)
+					$(ctl).next().text(checkOptions.checkedText);	// (3)					
+			}
+			
+			function setUnChecked(ctl) { // (4)
+					$(ctl).prev()
+					.removeClass(checkOptions.checkedGlyph)			// (5)
+					.addClass(checkOptions.unCheckedGlyph);			// (5)
+					$(ctl).parent()
+					.removeClass(checkOptions.checkedBtnClass)		// (5)
+					.addClass(checkOptions.unCheckedBtnClass);		// (5)
+					$(ctl).next().text(checkOptions.unCheckedText);	// (5)					
+			}
 			
 			$("input:checked").prev()
 				.removeClass('glyphicon-unchecked')
@@ -222,8 +230,12 @@
 		}
 		
 		
-		// (1) make the JS object to setup Generic Check Boxes; 
-		// (2) for the container (product selector or group of product selectors, I might have 2 and I wanna be able to modify things for a specific group)
+		// (1) take the code out of the if stmt and put it into a new def fn, functionSetChecked(ctl), with ctl meaning 'control'; 
+		// (2) call the functionSetChecked($(this)) in the if statement block
+		// (3) replace hardcoded glyphicon arguments in jQuery fn calls, with JS object keys
+		// (4) define function setUnChecked(ctl)
+		// (5) pass object keys to jQuery method calls
+		// (6) call the functionSetUnChecked($(this)) in the else statement block
 	</script>
 </body>
 </html>
