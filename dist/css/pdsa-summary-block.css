@@ -40,6 +40,22 @@
 .pdsa-summary-block-info .summary-footer a {
 	color: white;
 }
+
+
+/* color danger */
+.pdsa-summary-block-danger {
+	background-color: #a94442;
+	color: #fff;   
+}
+
+.pdsa-summary-block-danger .summary-footer {
+	background-color: red;  
+}
+
+.pdsa-summary-block-danger .summary-footer a {
+	color: white;
+}
+
 /* Structure of Summary Blocks */
 
 .pdsa-summary-block {
