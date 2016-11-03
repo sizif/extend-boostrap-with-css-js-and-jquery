@@ -122,9 +122,11 @@
 		});
 		
 		function ToggleRadioButtons(groupName, current) { // 'current' is the current label I clicked on
-			$(groupName + " .glyphicon-record") // (1) only one radio can have this icon at one time
+			$(groupName + " .glyphicon-record")
 			.removeClass("glyphicon-record")
-			.addClass("glyphicon-unchecked"); // (2) now all of them in the group are marked as unchecked
+			.addClass("glyphicon-unchecked");
+			// (1) then I wanna use the current one that I have, the current lable, and (2) I wanna find its first child
+			current.find(":first-child")
 		}
 	</script>
 </body>
