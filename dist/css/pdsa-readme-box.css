@@ -24,6 +24,18 @@
 	    color: red;
     }
 
+/* info color */
+.pdsa-readme-box-info {
+    border-color: #31708f;
+}
+
+.pdsa-readme-box-info .readme-header {
+	background-color: #31708f;
+}
+    .pdsa-readme-box-info .readme-footer a {
+	    color: red;
+    }
+
 
 
 /* Structure for the Readme Boxes */
