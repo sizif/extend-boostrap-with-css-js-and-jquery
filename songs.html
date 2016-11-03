@@ -184,32 +184,35 @@
 			
 			$("[type='checkbox']").on('change', function() {
 				if ($(this).prop('checked')) {
-					setChecked($(this)); // (2)
+					setChecked($(this));
 				}
 				else 
 				{
-					setUnChecked($(this)); // (6)
+					setUnChecked($(this));
 				}
 			});
 			
-			function setChecked(ctl) { // (1)
+			var checked = $(checkOptions.id + " .btn-group input:checked"); // (1)
+			setChecked(checked); // (2)
+			
+			function setChecked(ctl) {
 					$(ctl).prev()
-					.removeClass(checkOptions.unCheckedGlyph)		// (3)
-					.addClass(checkOptions.checkedGlyph);			// (3)
+					.removeClass(checkOptions.unCheckedGlyph)
+					.addClass(checkOptions.checkedGlyph);
 					$(ctl).parent()
-					.removeClass(checkOptions.unCheckedBtnClass)	// (3)
-					.addClass(checkOptions.checkedBtnClass);		// (3)
-					$(ctl).next().text(checkOptions.checkedText);	// (3)					
+					.removeClass(checkOptions.unCheckedBtnClass)
+					.addClass(checkOptions.checkedBtnClass);
+					$(ctl).next().text(checkOptions.checkedText);					
 			}
 			
-			function setUnChecked(ctl) { // (4)
+			function setUnChecked(ctl) {
 					$(ctl).prev()
-					.removeClass(checkOptions.checkedGlyph)			// (5)
-					.addClass(checkOptions.unCheckedGlyph);			// (5)
+					.removeClass(checkOptions.checkedGlyph)
+					.addClass(checkOptions.unCheckedGlyph);
 					$(ctl).parent()
-					.removeClass(checkOptions.checkedBtnClass)		// (5)
-					.addClass(checkOptions.unCheckedBtnClass);		// (5)
-					$(ctl).next().text(checkOptions.unCheckedText);	// (5)					
+					.removeClass(checkOptions.checkedBtnClass)
+					.addClass(checkOptions.unCheckedBtnClass);
+					$(ctl).next().text(checkOptions.unCheckedText);					
 			}
 			
 			$("input:checked").prev()
@@ -230,12 +233,8 @@
 		}
 		
 		
-		// (1) take the code out of the if stmt and put it into a new def fn, functionSetChecked(ctl), with ctl meaning 'control'; 
-		// (2) call the functionSetChecked($(this)) in the if statement block
-		// (3) replace hardcoded glyphicon arguments in jQuery fn calls, with JS object keys
-		// (4) define function setUnChecked(ctl)
-		// (5) pass object keys to jQuery method calls
-		// (6) call the functionSetUnChecked($(this)) in the else statement block
+		// (1) in the document ready, check for anything that is already selected
+		// (2) and set checked on that checked collection that I get back here, so that will then set all those
 	</script>
 </body>
 </html>
