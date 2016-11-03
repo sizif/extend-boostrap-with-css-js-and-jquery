@@ -172,18 +172,26 @@
 			});
 			
 			$("[type='checkbox']").on('change', function() {
-				// (1) the 'this' passed to if stmt is '<input type"checkbox"> '
 				if ($(this).prop('checked')) {
-					// (2) the .prev() is the line above (span glyphicon)
 					$(this).prev()
 					.removeClass('glyphicon-unchecked')
 					.addClass('glyphicon-ok-circle');
+					// (1)
+					$(this).parent()
+					.removeClass("btn-primary")
+					.addClass("btn-success");
+					// (2)
+					$(this).next().text("Selected");
 				}
 				else 
 				{
 					$(this).prev()
 					.removeClass('glyphicon-ok-circle')
 					.addClass('glyphicon-unchecked');
+					$(this).parent() // (3)
+					.removeClass("btn-success")
+					.addClass("btn-primary");
+					$(this).next().text("Not Selected"); // (4)
 				}
 			});
 			
@@ -203,6 +211,11 @@
 			.removeClass("glyphicon-unchecked")
 			.addClass("glyphicon-record");
 		}
+		
+		// (1) the 'this'.parent() is the btn
+		// (2) the this.next() is the label
+		// (3) do the same as (1) and (2) for the 'else' part of the if statement
+		// (4) and there you have your interactive button
 	</script>
 </body>
 </html>
