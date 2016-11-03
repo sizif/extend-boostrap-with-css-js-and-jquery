@@ -166,6 +166,17 @@
 	
 	<script>
 	/* global $ */
+	
+		var checkOptions = { // (1)
+			id: "", // (2) 
+			checkedGlyph: "glyphicon-ok-circle",
+			uncheckedGlyph: "glyphicon-unchecked",
+			checkedBtnClass: "btn-success",
+			unCheckedBtnClass: "btn-primary",
+			checkedText: "Selected",
+			unCheckedText: "Not Selected"
+		}
+	
 		$(document).ready(function() {
 			$("#songSelect .btn").on('click', function() {
 				ToggleRadioButtons("#songSelect", $(this));
@@ -210,6 +221,9 @@
 			.addClass("glyphicon-record");
 		}
 		
+		
+		// (1) make the JS object to setup Generic Check Boxes; 
+		// (2) for the container (product selector or group of product selectors, I might have 2 and I wanna be able to modify things for a specific group)
 	</script>
 </body>
 </html>
