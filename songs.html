@@ -126,7 +126,10 @@
 			.removeClass("glyphicon-record")
 			.addClass("glyphicon-unchecked");
 			// (1) then I wanna use the current one that I have, the current lable, and (2) I wanna find its first child
+			// (3) remove the unchecked, and (4) add the record class
 			current.find(":first-child")
+			.removeClass("glyphicon-unchecked")
+			.addClass("glyphicon-record");
 		}
 	</script>
 </body>
