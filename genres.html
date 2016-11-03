@@ -184,7 +184,19 @@
 	<script type="text/javascript" src="">
 		$(document).ready(function() {
 			$("[type='checkbox']").on('change', function() {
-				
+				// (1) the 'this' passed to if stmt is '<input type"checkbox"> '
+				if ($(this).prop('checked')) {
+					// (2) the .prev() is the line above (span glyphicon)
+					$(this).prev()
+					.removeClass('glyphicon-unchecked')
+					.addClass('glyphicon-ok-circle');
+				}
+				else 
+				{
+					$(this).prev()
+					.removeClass('glyphicon-ok-circle')
+					.addClass('glyphicon-unchecked');
+				}
 			});
 		}); 
 	</script>
