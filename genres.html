@@ -28,6 +28,8 @@
 		.checkbox-inline label {
 			text-align: left;
 		}
+		
+
 	</style>
 </head>
 <body class="notransition">
@@ -202,7 +204,8 @@
 			$("input:checked").prev()
 				.removeClass('glyphicon-unchecked')
 				.addClass('glyphicon-ok-circle');
-			
+			$("input:checked").parent()
+				.addClass('active');
 		}); 
 	</script>
 </body>
