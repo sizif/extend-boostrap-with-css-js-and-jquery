@@ -109,7 +109,7 @@
 					<div class="btn-group" data-toggle="buttons">
 						<label class="btn btn-default" for="">
 							<span class="glyphicon glyphicon-unchecked"></span>
-							<input type="checkbox">Jazz
+							<input type="checkbox" checked="checked">Jazz
 						</label>
 						<label class="btn btn-default" for="">
 							<span class="glyphicon glyphicon-unchecked"></span>
@@ -198,6 +198,11 @@
 					.addClass('glyphicon-unchecked');
 				}
 			});
+			
+			$("input:checked").prev()
+				.removeClass('glyphicon-unchecked')
+				.addClass('glyphicon-ok-circle');
+			
 		}); 
 	</script>
 </body>
