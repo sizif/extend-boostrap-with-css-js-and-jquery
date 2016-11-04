@@ -346,12 +346,15 @@
 			var total = $("#total").text(); // (2), (3)
 			
 			total = stripCurrency(total); // (4)
+			
+			var price = $(ctl).closest(".panel").find(".price").text(); // (5)
 		}
 		
 		// (1) We'll pass the correct control that we clicked on to the calculateTotal() function definition; that's the one ctl we clicked on, it has either selected or unselected
 		// (2) Now we target, we select, the id 'total', and we'll extract its text, so that gives us the total amount that's in the total right now.
 		// (3) We'll take this value and store it in variable 'total'
 		// (4) Now I wanna get rid of any separators or currency symbols
+		// (5) Now I wanna get the price of the clicked control, and then find the closest '.panel', and once I find the closest panel then I can find within that, the '.price', and finally, I can grab the text
 	</script>
 </body>
 </html>
