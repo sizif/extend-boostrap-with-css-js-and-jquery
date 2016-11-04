@@ -343,11 +343,14 @@
 		}
 		
 		function calculateTotal(ctl) { // (1)
-			$("#total").text(); // (2)	
+			var total = $("#total").text(); // (2), (3)
+			
+
 		}
 		
 		// (1) We'll pass the correct control that we clicked on to the calculateTotal() function definition; that's the one ctl we clicked on, it has either selected or unselected
 		// (2) Now we target, we select, the id 'total', and we'll extract its text, so that gives us the total amount that's in the total right now.
+		// (3) We'll take this value and store it in variable 'total'
 	</script>
 </body>
 </html>
