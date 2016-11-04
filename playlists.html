@@ -329,7 +329,24 @@
   	$(document).ready(function() {
   		$("#playlists .pdsa-panel-toggle")
   		.addClass("glyphicon glyphicon-plus");
+  		
+  		var list = $("#playlists .in"); // (1)
+  		for (var i=0; i < list.length; i++) {
+  			// (2): 
+  			$("a[href='#" + $(list[i]).attr("id") + "']") 
+  			.next(".pdsa-panel-toggle")
+  			.removeClass("glyphicon-plus")
+  			.addClass("glyphicon-minus");
+  		}
   	});
+  	
+  	// (1) We're looking for anything with an '.in';
+  	// (2) When we find the div that has it, we'll find its 'id', e.g. 'mytoprated';
+  	// (3) Then go through the whole list of #playlists .in, find their a tag with href of the name from (2);
+  	// (4) Now go through the next thing that has the .pdsa-panel-toggle (because that's the one that's pulled to the right);
+  	// (5) And that's the one from which we'll remove the class glyphicon-plus;1
+  	// (6) And we'll add the class glyphicon-minus;
+  	
   </script>
   
 </body>
