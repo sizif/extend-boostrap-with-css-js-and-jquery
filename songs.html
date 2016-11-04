@@ -300,6 +300,8 @@
 				{
 					setUnChecked($(this));
 				}
+				
+				calculateTotal($(this)); // (1)
 			});
 			
 			var checked = $(checkOptions.id + " .btn-group input:checked");
@@ -362,6 +364,8 @@
 			
 			$("#total").text();
 		}
+		
+		// (1) Here, where the change event is on the checkbox call our calculateTotal(), and we'll pass in 'this' as it argument
 	</script>
 </body>
 </html>
