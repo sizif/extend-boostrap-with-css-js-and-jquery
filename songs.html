@@ -301,11 +301,18 @@
 					setUnChecked($(this));
 				}
 				
-				calculateTotal($(this)); // (1)
+				calculateTotal($(this));
 			});
 			
 			var checked = $(checkOptions.id + " .btn-group input:checked");
 			setChecked(checked);
+			// (1) How to account for the first, already selected button
+			// (2) Let's loop through from 1 to checked.length
+			for (varf i=0; i < checked.length; i++) {
+				// (3) Each time through we can setChecked and we can calculate the Total
+				setChecked(checked);
+				calculateTotal($(checked[i]));
+			}
 			
 			function setChecked(ctl) {
 					$(ctl).prev()
@@ -362,10 +369,9 @@
 				total = parseFloat(total) - parseFloat(price);
 			}
 			
-			$("#total").text(formatCurrency(totalAmount)); // (1) IMPORTANT NOTE
+			$("#total").text(formatCurrency(totalAmount));
 		}
 		
-		// (1) Last thing we have to do now is say, okay, let's go to the total, and in that .text, let's format as currency the totalAmount
 	</script>
 </body>
 </html>
