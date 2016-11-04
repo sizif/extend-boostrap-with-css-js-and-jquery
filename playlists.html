@@ -337,22 +337,25 @@
   			.removeClass("glyphicon-plus")
   			.addClass("glyphicon-minus");
   		}
-  		
-  		$("#playlists").on('hide.bs.collapse', function(e) { // (1)
-  			// (2); (3); (4); (5)
+  		// hide
+  		$("#playlists").on('hide.bs.collapse', function(e) {
   			$("#" + e.target.id).prev()
   			.find(".pdsa-panel-toggle")
   			.removeClass("glyphicon-minus")
   			.addClass("glyphicon-plus");
   		});
+  		// show
+  		// (1); (2)
+  		$("#playlists").on('show.bs.collapse', function(e) {
+  			$("#" + e.target.id).prev()
+  			.find(".pdsa-panel-toggle")
+  			.removeClass("glyphicon-plus")
+  			.addClass("glyphicon-minus");
+  		});
   	});
   	
-
-  	// (1) now to make sure they change, plus to minus, minus to plus, we're hooking into the #playlists, and the .on .hide.bs.collapse
-  	// (2) e.target.id passes us the id of the target we just clicked on (and that is the collapsor thing, the one with or without the .on)
-  	// (3) so now we go to previous, so that we can
-  	// (4) find within .pdsa-panel-toggle
-  	// (5) from there we remove the class and add class
+	// (1) Now we'll hook into the show event;
+	// (2) But on this one we need to change the first to a plus and the second to a minus
   </script>
   
 </body>
