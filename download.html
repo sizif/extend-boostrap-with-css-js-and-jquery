@@ -17,7 +17,7 @@
   <!-- *** END: Styles *** -->
 
   <style>
-    /* (2) */
+
     .pdsa-submit-progress {
         position: fixed;
         top: 50%;
@@ -37,6 +37,7 @@
         box-shadow: 0.4em 0.4em rgba(0,0,0, 0.6);
         color: white;
     }
+    /* (1) */
     .pdsa-submit-progress-bg {
       background-color: lightgray;
       opacity: .5;
@@ -222,16 +223,16 @@
         $(ctl).prop('disabled', true);
         $(ctl).text(msg);
         
-        // (3)
         $(".pdsa-submit-progress").removeClass('hidden');
+        // (2)
+        $("body").addClass("pdsa-submit-progress-bg");
         
         return true;
     }
 
-// (i) Showing the user what's happening, Adding a pop-up message
-// (1) We're using the bootstrap's 'hidden' class, which makes the label hidden until we want it displayed
-// (2) adding styles for the pdsa-submit-progress
-// (3) now we show that area, first find the div, in this case, .pdsa-submit-progress class, and we'll remove the class hidden like so.
+// (i) Gray out the background (another effective technique to let the user know sth is happening)
+// (1) Add in style tag, the css class .pdsa-submit-progress-bg;
+// (2) Call addClass on body element in jQuery; 
   </script>
 </body>
 </html>
