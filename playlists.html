@@ -8,15 +8,10 @@
 	<link rel="stylesheet" href="dist/css/pdsa-sidebar.css" type="text/css">
 	<link rel="stylesheet" href="dist/css/pdsa-summary-block.css" type="text/css">
 	<link rel="stylesheet" href="dist/css/pdsa-readme-box.css" type="text/css">
+	<link rel="stylesheet" href="dist/css/pdsa-collapsers.css" type="text/css">
 	
 	<style type="text/css">
-		.panel .panel-heading .panel-title a {
-			text-decoration: none;
-		}
-		
-		.pdsa-panel-toggle {
-			float: right;
-		}
+
 	</style>
 </head>
 <body class="notransition">
@@ -117,7 +112,7 @@
              id="playlists"
              data-pdsa-collapser-name="playlists"
              data-pdsa-collapser-open="glyphicon glyphicon-plus"
-             data-pdsa-collapser-close="glyphicon glyphicon-minus"><!-- (2) -->
+             data-pdsa-collapser-close="glyphicon glyphicon-minus">
           <div class="panel panel-primary">
             <div class="panel-heading">
               <h1 class="panel-title">
@@ -321,44 +316,16 @@
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script src="dist/js/bootstrap.js"></script>
-	<script src="dist/js/pdsa-collapser.js"></script>
+	<script src="dist/js/pdsa-collapsers.js"></script>
 	<script src="dist/js/pdsa-common.js"></script>
   <!-- *** END: Scripts *** -->
   
   <script>
-  	$(document).ready(function() {
 
-  	  var open = $("#playlists").data("pdsa-collapser-open");
-  	  var close = $("#playlists").data("pdsa-collapser-close");
-  	  
-  		$("#playlists .pdsa-panel-toggle")
-  		.addClass(open);
-  		
-  		var list = $("#playlists .in");
-  		for (var i=0; i < list.length; i++) {
-  			$("a[href='#" + $(list[i]).attr("id") + "']") 
-  			.next(".pdsa-panel-toggle")
-  			.removeClass(open)
-  			.addClass(close);
-  		}
-
-  		$("#playlists").on('hide.bs.collapse', function(e) {
-  			$("#" + e.target.id).prev()
-  			.find(".pdsa-panel-toggle")
-  			.removeClass($("#playlists").data("pdsa-collapser-close"))
-  			.addClass($("#playlists").data("pdsa-collapser-open"));
-  		});
-
-  		$("#playlists").on('show.bs.collapse', function(e) {
-  			$("#" + e.target.id).prev()
-  			.find(".pdsa-panel-toggle")
-  			.removeClass($("#playlists").data("pdsa-collapser-open"))
-  			.addClass($("#playlists").data("pdsa-collapser-close"));
-  		});
-  	});
   	
-// (i) Different accordions can have different glyphs (plus and minus, chevron up and down);
-// (ii) Move all CSS and JS into files; (iii) Make jQuery more generic (add loop for each container; use id attribute of each container); (iv) data-pdsa-collapser-name is gonna point right back to the id; (v) this will allow us to create multiple accordions with one set of jQuery
+// (1) add a new stylesheet pdsa-collapsers.css, cut-paste from style tag of this html doc
+// (2) grab all the jQuery from this doc and put it into scripts, pdsa-collapsers.js
+// (3) add links to the new css and js files
   </script>
   
 </body>
