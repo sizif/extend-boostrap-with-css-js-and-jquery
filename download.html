@@ -17,6 +17,26 @@
   <!-- *** END: Styles *** -->
 
   <style>
+    /* (2) */
+    .pdsa-submit-progress {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        z-index: 1;
+        height: 6em;
+        width: 20em;
+        margin-left: -10em;
+        padding-top: 2.5em;
+        padding-left: 2.1em;
+        background-color: #000;
+        border-radius: 0.4em;
+        -moz-border-radius: 0.4em;
+        -webkit-border-radius: 0.4em;
+        -webkit-box-shadow: 0.4em 0.4em rgba(0,0,0, 0.6);
+        -moz-box-shadow: 0.4em 0.4em rgba(0,0,0, 0.6);
+        box-shadow: 0.4em 0.4em rgba(0,0,0, 0.6);
+        color: white;
+    }
     .pdsa-submit-progress-bg {
       background-color: lightgray;
       opacity: .5;
@@ -125,10 +145,10 @@
     <!-- *** END: Left Navigation *** -->
   </div>
   
-  <!-- ** BEGIN POP-UP MESSAGE AREA ** -->
-  <div class="pdsa-submit-progress hidden">
-    <i class="fa fa-2x fa-spinner fa-spin"></i>
-    <label>Please wait while Downloading...</label>
+  <!-- ** BEGIN POP-UP MESSAGE AREA ** -->              <!-- (1) -->
+  <div class="pdsa-submit-progress hidden">             <!-- (1) -->
+    <i class="fa fa-2x fa-spinner fa-spin"></i>         <!-- (1) -->
+    <label>Please wait while Downloading...</label>     <!-- (1) -->
   </div>
   <!-- ** END POP-UP MESSAGE AREA ** -->
 
@@ -178,7 +198,7 @@
 <button type="submit"
         id="submitButton"
         class="btn btn-primary"
-        onclick="return DisplayProgressMessage(this, 'Downloading...');"><!-- (1) -->
+        onclick="return DisplayProgressMessage(this, 'Downloading...');">
   Download
 </button>
           </div>
@@ -196,19 +216,22 @@
 	<script src="dist/js/pdsa-collapsers.js"></script>
   <!-- *** END: Scripts *** -->
   <script>
-    // (2), (3)
+
     function DisplayProgressMessage(ctl, msg) {
-        // (4)
+
         $(ctl).prop('disabled', true);
         $(ctl).text(msg);
         
+        // (3)
+        $(".pdsa-submit-progress").removeClass('hidden');
+        
         return true;
     }
-    // (1) We wanna call the onclick here, and we want to display is 'this' (the button itself), the message we want to change is from 'Download' to 'Downloading...'
-    // (2) Let's add a new function definition, DisplayProgressMessage(ctl, msg)
-    // (3) We'll pass in control (which is the button itself), and the msg we want to display on that control
-    // (4) We're gonna say okay stl, let's first set your disabled property to true, and now change the text to the message that we typed here, and then just return true
-    // (5) now once the user clicks he can't do it again, and he can see that the operation is in progress
+
+// (i) Showing the user what's happening, Adding a pop-up message
+// (1) We're using the bootstrap's 'hidden' class, which makes the label hidden until we want it displayed
+// (2) adding styles for the pdsa-submit-progress
+// (3) now we show that area, first find the div, in this case, .pdsa-submit-progress class, and we'll remove the class hidden like so.
   </script>
 </body>
 </html>
