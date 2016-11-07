@@ -178,7 +178,7 @@
 <button type="submit"
         id="submitButton"
         class="btn btn-primary"
-        onclick="return DisplayProgressMessage(this, 'Downloading...');">
+        onclick="return DisplayProgressMessage(this, 'Downloading...');"><!-- (1) -->
   Download
 </button>
           </div>
@@ -195,5 +195,20 @@
 	<script src="dist/js/pdsa-common.js"></script>
 	<script src="dist/js/pdsa-collapsers.js"></script>
   <!-- *** END: Scripts *** -->
+  <script>
+    // (2), (3)
+    function DisplayProgressMessage(ctl, msg) {
+        // (4)
+        $(ctl).prop('disabled', true);
+        $(ctl).text(msg);
+        
+        return true;
+    }
+    // (1) We wanna call the onclick here, and we want to display is 'this' (the button itself), the message we want to change is from 'Download' to 'Downloading...'
+    // (2) Let's add a new function definition, DisplayProgressMessage(ctl, msg)
+    // (3) We'll pass in control (which is the button itself), and the msg we want to display on that control
+    // (4) We're gonna say okay stl, let's first set your disabled property to true, and now change the text to the message that we typed here, and then just return true
+    // (5) now once the user clicks he can't do it again, and he can see that the operation is in progress
+  </script>
 </body>
 </html>
