@@ -117,7 +117,7 @@
              id="playlists"
              data-pdsa-collapser-name="playlists"
              data-pdsa-collapser-open="glyphicon glyphicon-plus"
-             data-pdsa-collapser-close="glyphicon glyphicon-minus">
+             data-pdsa-collapser-close="glyphicon glyphicon-minus"><!-- (2) -->
           <div class="panel panel-primary">
             <div class="panel-heading">
               <h1 class="panel-title">
@@ -327,35 +327,41 @@
   
   <script>
   	$(document).ready(function() {
+  	  // (1) These are the two things that we wanna go after:
+  	  var open = $("#playlists").data("pdsa-collapser-open");
+  	  var close = $("#playlists").data("pdsa-collapser-close");
+  	  
   		$("#playlists .pdsa-panel-toggle")
-  		.addClass("glyphicon glyphicon-plus");
+  		.addClass(open); // (3)
   		
   		var list = $("#playlists .in");
   		for (var i=0; i < list.length; i++) {
   			$("a[href='#" + $(list[i]).attr("id") + "']") 
   			.next(".pdsa-panel-toggle")
-  			.removeClass("glyphicon-plus")
-  			.addClass("glyphicon-minus");
+  			.removeClass(open)
+  			.addClass(close);
   		}
-  		// hide
+// (4)
   		$("#playlists").on('hide.bs.collapse', function(e) {
   			$("#" + e.target.id).prev()
   			.find(".pdsa-panel-toggle")
-  			.removeClass("glyphicon-minus")
-  			.addClass("glyphicon-plus");
+  			.removeClass($("#playlists").data("pdsa-collapser-close"))
+  			.addClass($("#playlists").data("pdsa-collapser-open"));
   		});
-  		// show
-  		// (1); (2)
+// (4)
   		$("#playlists").on('show.bs.collapse', function(e) {
   			$("#" + e.target.id).prev()
   			.find(".pdsa-panel-toggle")
-  			.removeClass("glyphicon-plus")
-  			.addClass("glyphicon-minus");
+  			.removeClass($("#playlists").data("pdsa-collapser-open"))
+  			.addClass($("#playlists").data("pdsa-collapser-close"));
   		});
   	});
   	
-	// (1) Now we'll hook into the show event;
-	// (2) But on this one we need to change the first to a plus and the second to a minus
+// (i) Use 'data-' attributes for generic coding (adding 'data-' attributes to accordions)
+// (1) These are the two things that we wanna go after
+// (2) We've already added data-pdsa-collapser-open and ...-closed
+// (3) Now its just a matter of using the appropriate things in the appropriate place, replacing the hardcoded glypicon classes with js vars 'open' and 'close'
+// (4) But once I get into the 'hide' and 'show' event I can't use those any more, so I'll have to spell it out
   </script>
   
 </body>
