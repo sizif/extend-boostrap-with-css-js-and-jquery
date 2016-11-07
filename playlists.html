@@ -327,12 +327,12 @@
   
   <script>
   	$(document).ready(function() {
-  	  // (1) These are the two things that we wanna go after:
+
   	  var open = $("#playlists").data("pdsa-collapser-open");
   	  var close = $("#playlists").data("pdsa-collapser-close");
   	  
   		$("#playlists .pdsa-panel-toggle")
-  		.addClass(open); // (3)
+  		.addClass(open);
   		
   		var list = $("#playlists .in");
   		for (var i=0; i < list.length; i++) {
@@ -341,14 +341,14 @@
   			.removeClass(open)
   			.addClass(close);
   		}
-// (4)
+
   		$("#playlists").on('hide.bs.collapse', function(e) {
   			$("#" + e.target.id).prev()
   			.find(".pdsa-panel-toggle")
   			.removeClass($("#playlists").data("pdsa-collapser-close"))
   			.addClass($("#playlists").data("pdsa-collapser-open"));
   		});
-// (4)
+
   		$("#playlists").on('show.bs.collapse', function(e) {
   			$("#" + e.target.id).prev()
   			.find(".pdsa-panel-toggle")
@@ -357,11 +357,8 @@
   		});
   	});
   	
-// (i) Use 'data-' attributes for generic coding (adding 'data-' attributes to accordions)
-// (1) These are the two things that we wanna go after
-// (2) We've already added data-pdsa-collapser-open and ...-closed
-// (3) Now its just a matter of using the appropriate things in the appropriate place, replacing the hardcoded glypicon classes with js vars 'open' and 'close'
-// (4) But once I get into the 'hide' and 'show' event I can't use those any more, so I'll have to spell it out
+// (i) Different accordions can have different glyphs (plus and minus, chevron up and down);
+// (ii) Move all CSS and JS into files; (iii) Make jQuery more generic (add loop for each container; use id attribute of each container); (iv) data-pdsa-collapser-name is gonna point right back to the id; (v) this will allow us to create multiple accordions with one set of jQuery
   </script>
   
 </body>
