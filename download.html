@@ -13,7 +13,8 @@
 	<link rel="stylesheet" href="dist/css/pdsa-collapsers.css" type="text/css">
   <link href="Content/pdsa-progress.css" rel="stylesheet" />
   <!-- Font Awesome for Spinner -->
-  <link href="Content/font-awesome.min.css" rel="stylesheet" />
+  <!-- (1) -->
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
   <!-- *** END: Styles *** -->
 
   <style>
@@ -37,7 +38,7 @@
         box-shadow: 0.4em 0.4em rgba(0,0,0, 0.6);
         color: white;
     }
-    /* (1) */
+
     .pdsa-submit-progress-bg {
       background-color: lightgray;
       opacity: .5;
@@ -146,10 +147,10 @@
     <!-- *** END: Left Navigation *** -->
   </div>
   
-  <!-- ** BEGIN POP-UP MESSAGE AREA ** -->              <!-- (1) -->
-  <div class="pdsa-submit-progress hidden">             <!-- (1) -->
-    <i class="fa fa-2x fa-spinner fa-spin"></i>         <!-- (1) -->
-    <label>Please wait while Downloading...</label>     <!-- (1) -->
+  <!-- ** BEGIN POP-UP MESSAGE AREA ** -->
+  <div class="pdsa-submit-progress hidden">
+    <i class="fa fa-2x fa-spinner fa-spin"></i><!-- (1) -->
+    <label>Please wait while Downloading...</label>
   </div>
   <!-- ** END POP-UP MESSAGE AREA ** -->
 
@@ -223,16 +224,19 @@
         $(ctl).prop('disabled', true);
         $(ctl).text(msg);
         
-        $(".pdsa-submit-progress").removeClass('hidden');
-        // (2)
+        setTimeout(function () {
+            $(".pdsa-submit-progress").removeClass("hidden");
+        }, 0);
+
         $("body").addClass("pdsa-submit-progress-bg");
         
         return true;
     }
 
-// (i) Gray out the background (another effective technique to let the user know sth is happening)
-// (1) Add in style tag, the css class .pdsa-submit-progress-bg;
-// (2) Call addClass on body element in jQuery; 
+// (i) We'll add spinning glyphs, (.) we'll add fa, use fa-spin, (..) respond to onclick event, (...) disable btn and change text, unhide div, apply css to body, (....) we'll use JS setTimeout() to give time for spinner to start
+// (1) Add fontawesome cdn
+// (2) This is how you add the spinner, make it bigger, and spin it
+// (3) We'll also add the JS setTimeout, put the removeClass hidden inside it, and pass it some delay as the second param, after the 1st param (which is the anon function); the second param is 0 because just doing a 0 is all we need for it release time for it to go run something else.
   </script>
 </body>
 </html>
